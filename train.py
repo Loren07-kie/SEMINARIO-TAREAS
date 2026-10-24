@@ -154,6 +154,7 @@ Silva, P., y Marçal, A. (2014). *Leaf* [Conjunto de datos]. UCI Machine Learnin
 
 Scikit-learn. *DecisionTreeClassifier*. https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html
 ''')
+if (ROOT/'MANUAL_FOTOS.md').exists(): md((ROOT/'MANUAL_FOTOS.md').read_text())
 old=Path.cwd()
 # Cells run from ROOT; dataset path resolution supports both root and dist.
 nb=dict(cells=cells,metadata=dict(kernelspec=dict(display_name='Python 3',language='python',name='python3'),language_info=dict(name='python',version='3')),nbformat=4,nbformat_minor=4)

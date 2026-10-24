@@ -24,3 +24,12 @@ Reporte: https://flororda.onrender.com/Reporte_FlorOrda.html
 
 ## Fuentes
 Leaf, UCI: https://doi.org/10.24432/C53C78 (CC BY 4.0). Consulta `dist/CREDITOS.md` para las fotografías y sus licencias.
+
+## Reconocimiento y entrenamiento con fotografías (10 categorías)
+En la portada: alcornoque, adelfa, arce japonés, olivo, rosa, tulipán, girasol, margarita, orquídea e hibisco.
+- Modelo inicial: CLIP zero-shot con descripciones de las categorías. No se atribuye a este modo la exactitud del árbol Leaf.
+- Modelo propio: centroides entrenados con vectores de fotos etiquetadas; al menos 3 fotos por categoría activa y dos categorías. Para las diez: mínimo 30 fotos.
+- Procesamiento en navegador con Transformers.js 3.8.1 y Xenova/clip-vit-base-patch32. Primera carga: descarga grande de pesos desde Hugging Face.
+- Persistencia local de vectores y etiquetas, exportación/importación JSON y validación leave-one-out. Sin almacenamiento de originales ni envío a una API de identificación.
+- `dist/photo-ai.js`: extracción visual, comparación, entrenamiento y evaluación.
+Consulta la sección 12 del Jupyter para el manual completo.
