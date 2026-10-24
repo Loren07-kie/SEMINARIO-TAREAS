@@ -168,11 +168,30 @@ X=ns['X']; y=ns['y']; df=ns['df']
 d=dict(tree=tree(0),accuracy=float(ns['accuracy']),cv=float(ns['scores'].mean()),matrix=ns['cm'].tolist(),total=len(y),train=len(ns['y_train']),test=len(ns['y_test']),correct=int(sum(ns['pred']==ns['y_test'])),counts=[int(sum(y==i)) for i in range(4)],ranges=[[float(X[:,i].min()),float(X[:,i].max())] for i in range(4)],examples=[X[y==i][0].tolist() for i in range(4)],points=[dict(x=float(x[0]),y=float(x[1]),c=int(k)) for x,k in zip(X,y)])
 (ROOT/'dist/model.js').write_text('const DATA='+json.dumps(d)+';')
 # Standalone HTML report, with the same real code outputs and embedded plots.
-import html
-parts=['<!doctype html><html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>FlorOrda · Reporte ejecutado</title><style>body{max-width:980px;margin:40px auto;padding:20px;font:15px/1.65 system-ui;color:#183f32;background:#f6f5ef}pre{white-space:pre-wrap;background:white;padding:18px;border:1px solid #ddd;border-radius:8px}img{max-width:100%}section{white-space:pre-wrap;margin:25px 0}a{color:#735ba2}</style><a href="index.html">← Volver a FlorOrda</a>']
+import html,re
+def render_md(text):
+    def inline(t):
+        t=html.escape(t)
+        t=re.sub(r'`([^`]+)`',r'<code>\1</code>',t)
+        t=re.sub(r'\*\*([^*]+)\*\*',r'<strong>\1</strong>',t)
+        t=re.sub(r'\*([^*]+)\*',r'<em>\1</em>',t)
+        return t
+    lines=text.splitlines(); out=[]; in_table=False
+    for line in lines:
+        if line.startswith('|'):
+            if not in_table: out.append('<table>'); in_table=True
+            if re.match(r'^\|[- |]+\|$',line):continue
+            out.append('<tr>'+''.join('<td>'+inline(x.strip())+'</td>' for x in line.strip('|').split('|'))+'</tr>');continue
+        if in_table:out.append('</table>');in_table=False
+        m=re.match(r'^(#{1,3}) (.*)',line)
+        if m: out.append(f'<h{len(m[1])}>'+inline(m[2])+f'</h{len(m[1])}>')
+        elif line:out.append('<p>'+inline(line)+'</p>')
+    if in_table:out.append('</table>')
+    return ''.join(out)
+parts=['<!doctype html><html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>FlorOrda · Reporte ejecutado</title><style>body{max-width:980px;margin:40px auto;padding:20px;font:15px/1.65 system-ui;color:#183f32;background:#f6f5ef}pre{white-space:pre-wrap;background:white;padding:18px;border:1px solid #ddd;border-radius:8px}img{max-width:100%}section{margin:25px 0}pre,code{overflow-wrap:anywhere}h1{font:42px Georgia}h2{margin-top:35px}table{border-collapse:collapse;width:100%}td{border:1px solid #ccd6c4;padding:9px}p{margin:10px 0}a{color:#735ba2}</style><a href="index.html">← Volver a FlorOrda</a>']
 for c in cells:
  s=''.join(c['source'])
- if c['cell_type']=='markdown':parts.append('<section>'+html.escape(s)+'</section>')
+ if c['cell_type']=='markdown':parts.append('<section>'+render_md(s)+'</section>')
  else:
   parts.append('<pre>'+html.escape(s)+'</pre>')
   for o in c['outputs']:
