@@ -46,3 +46,6 @@ select{display:block;width:100%;border:1px solid #d9cbd2;border-radius:7px;paddi
 .training-count{font-weight:700;color:#85425e!important}button:disabled{opacity:.5;cursor:wait;transform:none}.photo-module a{text-decoration:underline}.photo-module a.primary{text-decoration:none}
 @media(max-width:950px){.photo-classes{grid-template-columns:repeat(3,1fr)}.ai-welcome{display:block}.ai-welcome .primary{margin:8px 0}.photo-grid{gap:15px}.photo-grid>article{padding:18px}}
 @media(max-width:650px){#photo-panel{padding:16px}.photo-grid,.training-inputs{grid-template-columns:1fr}.photo-classes{grid-template-columns:repeat(2,1fr)}.photo-training{padding:16px}.training-buttons{align-items:stretch}.training-buttons>*{width:100%}.photo-preview-wrap img{height:230px}nav{flex-wrap:wrap}}
+
+/* Fotografías reales en las diez categorías */
+.plant-chip{display:block;padding:0;overflow:hidden;background:#fff8fa;border:1px solid #efdee4}.plant-photo-link{display:block;overflow:hidden}.plant-chip img{display:block;width:100%;height:120px;object-fit:cover;transition:transform .4s}.plant-chip:hover img{transform:scale(1.05)}.plant-chip>div{padding:11px 13px}.plant-chip b{font-size:13px}.plant-chip small{margin-top:3px}@media(max-width:650px){.plant-chip img{height:115px}}
