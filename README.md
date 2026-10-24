@@ -19,7 +19,8 @@ Desde la raíz: `pip install -r requirements.txt` y `python train.py`. Para ejec
 
 ## Publicación
 Repositorio: https://github.com/Loren07-kie/SEMINARIO-TAREAS
-La URL confirmada de Render se añadirá tras completar la publicación.
+Web: https://flororda.onrender.com
+Reporte: https://flororda.onrender.com/Reporte_FlorOrda.html
 
 ## Fuentes
 Leaf, UCI: https://doi.org/10.24432/C53C78 (CC BY 4.0). Consulta `dist/CREDITOS.md` para las fotografías y sus licencias.
