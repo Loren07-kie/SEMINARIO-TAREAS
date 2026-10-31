@@ -19,6 +19,9 @@ No necesita Node, claves API ni servidor de inferencia. Funciona localmente; las
 Python 3.11–3.13 recomendado. Instalar con `pip install -r requirements.txt`, abrir el `.ipynb` en Jupyter o VS Code y seleccionar Restart & Run All. Los datos están integrados; no requiere rutas CSV externas. Las exportaciones se habilitan con `GUARDAR=True`.
 Si falta Jupyter: instalar `jupyterlab` con pip y ejecutar `jupyter lab`.
 
+## Programa Python independiente
+Ejecutar `python analizar.py` para crear resultados CSV, comparación de K y modelo JSON en `resultados/`. Opciones: `--csv archivo.csv --k 3 --eps 1.4 --minimo 3 --salida carpeta`. Si se omite K se escoge el de mayor silueta entre 2 y 6.
+
 ## Manual breve
 1. Elegir algoritmo y parámetros; pulsar Analizar suelos.
 2. Tocar puntos y cambiar ejes para explorar propiedades.
