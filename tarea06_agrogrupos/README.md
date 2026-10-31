@@ -13,7 +13,7 @@ Web: https://agrogrupos.onrender.com/
 
 ## Abrir localmente
 Desde esta carpeta ejecutar `python -m http.server 8000 --directory dist` y abrir http://localhost:8000/.
-No necesita Node, claves API ni servidor de inferencia. Funciona localmente; las fuentes tipográficas opcionales requieren Internet y tienen alternativas del sistema.
+No necesita Node, claves API ni servidor de inferencia. Funciona localmente; las fuentes principales de grafiti están incluidas localmente; las fuentes de texto auxiliares tienen alternativas del sistema.
 
 ## Ejecutar el cuaderno
 Python 3.11–3.13 recomendado. Instalar con `pip install -r requirements.txt`, abrir el `.ipynb` en Jupyter o VS Code y seleccionar Restart & Run All. Los datos están integrados; no requiere rutas CSV externas. Las exportaciones se habilitan con `GUARDAR=True`.
@@ -44,3 +44,6 @@ Documentación: https://scikit-learn.org/stable/modules/clustering.html
 
 ## Privacidad
 Los CSV se procesan en el navegador. No hay cuentas ni almacenamiento remoto de los datos cargados. Al recargar se restauran los datos de demostración.
+
+## Diseño visual
+Tema oscuro con fondo agrícola original generado por IA, capa oscura para legibilidad, logo grafiti multicolor y animaciones de letras. Las animaciones respetan la preferencia de movimiento reducido. Las fuentes de grafiti y sus licencias se incluyen en `dist/assets`.

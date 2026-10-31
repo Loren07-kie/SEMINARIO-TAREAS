@@ -1,4 +1,4 @@
-const $=id=>document.getElementById(id), colors=['#3f775b','#c18b50','#7d82aa','#b65d4f','#87a85a','#bc8ea3'];
+const $=id=>document.getElementById(id), colors=['#b8f343','#bf82f7','#ffad58','#68dacc','#ff7da3','#77a8ff'];
 let rows=BASE.rows.map(r=>({...r})),demo=true,current=null,scaling=null,scores=[],dirty=false;
 const fmt=v=>v===null||!Number.isFinite(v)?'No aplica':Number(v).toLocaleString('es-PE',{maximumFractionDigits:3});
 function color(g){return g<0?'#7a8177':colors[g%colors.length];}
